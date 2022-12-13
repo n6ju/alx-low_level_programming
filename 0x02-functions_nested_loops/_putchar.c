@@ -1,4 +1,3 @@
-#include "main.h"
 #include <unistd.h>
 
 /**
@@ -6,6 +5,7 @@
  * @c: the character to print
  *
  * Return: On success 1
+ *
  */
 int _putchar(char c)
 {
