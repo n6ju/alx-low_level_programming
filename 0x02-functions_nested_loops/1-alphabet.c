@@ -10,5 +10,5 @@ void print_alphabet(void)
 	for (la = 'a'; la <= 'z'; la++)
 		_putcha(la);
 
-	_putchar('\n')
+	_putchar('\n');
 }
