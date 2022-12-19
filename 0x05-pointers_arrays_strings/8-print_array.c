@@ -16,5 +16,6 @@ void print_array(int *a, int n)
 		if (q != n - 1)
 			printf(", ");
 	}
+
 	_putchar("\n");
 }
