@@ -4,18 +4,20 @@
  * _strcpy - copies the string pointed to by src
  * @dest: destination
  * @src: source
- * Return: string
+ *
+ * Return: this return copy
  */
 char *_strcpy(char *dest, char *src)
 {
-	int len = 0;
+	char *start = dest
 
-	while (*(src + len) != '\0')
+	while (*src != '\0')
 	{
-		*(dest + len) = *(src + len);
-		len++;
+		*dest = *src;
+		dest++;
+		src++;
 	}
 
-	*(dest + len) = '\0';
-	return (0);
+	*dest = '\0';
+	return (start);
 }
