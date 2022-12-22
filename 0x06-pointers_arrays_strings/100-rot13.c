@@ -1,16 +1,16 @@
 #include "main.h"
 
 /**
- * rot13 - Encodes a string using rot13
- * @str: The string to be encoded
- *
- * Return: A pointer to the encode string
+ * rot13 - encodes a string using rot13
+ * @str: The string targeted
+ * Return: returns the encoded string
  */
+
 char *rot13(char *str)
 {
-	int indx1 = 0, indx2;
+	int indx1, indx2;
 	char alphabet[52] = {'A', 'B', 'C', 'D', 'E', 'F',
-		'G', 'H', 'I', 'J', 'K', 'L',
+	        'G', 'H', 'I', 'J', 'K', 'L',
 		'M', 'N', 'O', 'P', 'Q', 'R',
 		'S', 'T', 'U', 'V', 'W', 'X',
 		'Y', 'Z', 'a', 'b', 'c', 'd',
@@ -27,7 +27,7 @@ char *rot13(char *str)
 		'x', 'y', 'z', 'a', 'b', 'c',
 		'd', 'e', 'f', 'g', 'h', 'i',
 		'j', 'k', 'l', 'm'};
-	while (str[indx1])
+	while (str[++indx1])
 	{
 		for (indx2 = 0; indx2 < 52; indx2++)
 		{
@@ -37,7 +37,6 @@ char *rot13(char *str)
 				break;
 			}
 		}
-		indx1++;
 	}
 	return (str);
 }
