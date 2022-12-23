@@ -1,10 +1,5 @@
 #include <stdio.h>
 
-/**
- * type your main function name
- * description: type your main function
- * Return: 0
- */
 int main(void)
 {
   int n;
@@ -25,4 +20,4 @@ int main(void)
   /* ...so that this prints 98\n */
   printf("a[2] = %d\n", a[2]);
   return (0);
-} 
+}
