@@ -1,45 +1,68 @@
 #include "main.h"
-#include <stdlib.h>
-
 /**
- * string_nconcat - Concatenates two strings using at
- *                  most an inputted number of bytes.
- * @s1: The first string.
- * @s2: The second string.
- * @n: The maximum number of bytes of s2 to concatenate to s1.
- *
- * Return: If the function fails - NULL.
- *         Otherwise - a pointer to the concatenated space in memory.
+ *_strlen - count array
+ *@s: array of elements
+ *Return: 1
  */
-char *string_nconcat(char *s1, char *s2, unsigned int n)
+
+int _strlen(char *s)
 {
-	char *concat;
-	unsigned int len = n, index;
+unsigned int i;
 
-	if (s1 == NULL)
-		s1 = "";
-
-	if (s2 == NULL)
-		s2 = "";
-
-	for (index = 0; s1[index]; index++)
-		len++;
-
-	concat = malloc(sizeof(char) * (len + 1));
-
-	if (concat == NULL)
-		return (NULL);
-
-	len = 0;
-
-	for (index = 0; s1[index]; index++)
-		concat[len++] = s1[index];
-
-	for (index = 0; s2[index] && index < n; index++)
-		concat[len++] = s2[index];
-
-	concat[len] = '\0';
-
-	return (concat);
+i = 0;
+while (s[i] != '\0') /*count character of string*/
+{
+i++;
 }
 
+return (i);
+}
+
+/**
+ *_strcpy - copy arrays
+ *@src: array of elements
+ *@dest: dest array
+ *Return: dest
+ */
+
+char *_strcpy(char *dest, char *src)
+{
+int i = 0;
+
+while (src[i] != '\0')
+{
+dest[i] = src[i];
+i++;
+}
+dest[i] = '\0';
+
+return (dest);
+}
+
+/**
+ *_strdup - array for prints a string
+ *@str: array of elements
+ *Return: pointer
+ */
+
+char *_strdup(char *str)
+{
+char *dst;
+unsigned int size;
+
+if (str == 0)
+{
+return (NULL);
+}
+
+size = _strlen(str) + 1;
+
+dst = (char *) malloc(size *sizeof(char));
+
+if (dst == 0)
+{
+return (NULL);
+}
+_strcpy(dst, str);
+return (dst);
+}
