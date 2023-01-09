@@ -1,34 +1,62 @@
 #include "main.h"
-#include <stdlib.h>
-
 /**
- * _calloc - Allocates memory for an array of a certain number
- *           of elements each of an inputted byte size.
- * @nmemb: The number of elements.
- * @size: The byte size of each array element.
- *
- * Return: If nmemb = 0, size = 0, or the function fails - NULL.
- *         Otherwise - a pointer to the allocated memory.
+ *_strlen - count arrray
+ *@s: array of elements
+ *Return: i
  */
-void *_calloc(unsigned int nmemb, unsigned int size)
+
+int _strlen(char *s)
 {
-	void *mem;
-	char *filler;
-	unsigned int index;
+	unsigned int i;
 
-	if (nmemb == 0 || size == 0)
-		return (NULL);
+	i = 0;
+	while (s[i] != '\0') /*Count character of string*/
+	{
+		i++;
+	}
 
-	mem = malloc(size * nmemb);
-
-	if (mem == NULL)
-		return (NULL);
-
-	filler = mem;
-
-	for (index = 0; index < (size * nmemb); index++)
-		filler[index] = '\0';
-
-	return (mem);
+	return (i);
 }
 
+/**
+ *str_concat - back a pointer to array
+ *@s1: Array one
+ *@s2: Array two
+ *Return: Always an array dinamic
+ */
+
+char *str_concat(char *s1, char *s2)
+{
+	char *dst;
+	unsigned int i, j, size;
+
+	/*If the array is empty*/
+	if (s1 == NULL)
+		s1 = "";
+
+	if (s2 == NULL)
+		s2 = "";
+
+	/*count size total*/
+	size = (_strlen(s1) + _strlen(s2) + 1);
+
+	/*malloc*/
+	dst = (char *) malloc(size * sizeof(char));
+
+	if (dst == 0)
+	{
+		return (NULL);
+	}
+
+	/*Concatenate arrays*/
+	for (i = 0; *(s1 + i) != '\0'; i++)
+		*(dst + i) = *(s1 + i);
+
+	for (j = 0; *(s2 + j) != '\0'; j++)
+	{
+		*(dst + i) = *(s2 + j);
+		i++;
+	}
+
+	return (dst);
+}
